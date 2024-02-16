@@ -42,7 +42,7 @@ const datetimePicker = flatpickr('#datetime-picker', {
 
     // Проверка, выбрана ли дата в будущем
     if (userSelectedDate < new Date()) {
-      // Вывод сообщения об ошибке и блокировка кнопки "Start"
+      // Вывод сообщения об ошибке и блокировка кнопки start
       iziToast.error({
         title: 'Error',
         message: 'Please choose a date in the future',
@@ -50,13 +50,13 @@ const datetimePicker = flatpickr('#datetime-picker', {
       });
       startButton.disabled = true;
     } else {
-      // Разблокировка кнопки "Start"
+      // Разблокировка кнопки start
       startButton.disabled = false;
     }
   },
 });
 
-// Обработчик события для кнопки "Start"
+// Обработчик события для кнопки start
 document.querySelector('[data-start]').addEventListener('click', () => {
   const userSelectedDate = datetimePicker.selectedDates[0];
   const startButton = document.querySelector('[data-start]');
@@ -72,7 +72,7 @@ document.querySelector('[data-start]').addEventListener('click', () => {
     return;
   }
 
-  // Блокировка кнопки "Start"
+  // Блокировка кнопки start
   startButton.disabled = true;
 
   // Установка интервала для обновления таймера каждую секунду
@@ -80,7 +80,7 @@ document.querySelector('[data-start]').addEventListener('click', () => {
     const currentTime = new Date();
     const timeDifference = userSelectedDate - currentTime;
 
-    // Проверка, достигнута ли конечная дата
+    // Проверяем достигнута ли конечная дата
     if (timeDifference <= 0) {
       // Остановка интервала, обновление интерфейса и вывод сообщения об успешном завершении
       clearInterval(intervalId);

@@ -11,7 +11,6 @@ body {
 }
 
 .input {
-
   font-size: 16px;
   margin-right: 8px;
   display: flex;
@@ -19,10 +18,8 @@ body {
   height: 37px;
   margin-left: 16px;
   margin-bottom: 32px;
-
   border-radius: 4px;
   border: 1px solid #808080;
-
 }
 
 .container {
@@ -33,7 +30,6 @@ body {
   display: flex;
   padding: 8px 16px;
   font-size: 16px;
-
   color: #fff;
   border: none;
   cursor: pointer;
@@ -59,12 +55,10 @@ button:disabled {
   text-align: center;
   margin: 0 10px;
   display: grid;
-
 }
 
 .value {
   font-size: 24px;
-  /* font-weight: bold; */
   font-size: 40px;
 }
 
@@ -76,8 +70,57 @@ button:disabled {
   text-transform: uppercase;
 }
 
-.fulfilled-label {
-  width: 100px;
-  height: 40px;
+.fuldset-label {
+  width: 360px;
+  height: 64px;
+  margin-bottom: 24px;
+  margin-top: 30px;
+  padding: 0;
+  border-radius: 4px;
+}
 
+
+.delay-fild {
+  display: grid;
+  gap: 8px;
+}
+
+.custom-input {
+  width: 360px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+}
+
+.custom-label {
+  display: inline-flex;
+  margin-left: 48px;
+  margin-top: 11px;
+  align-items: flex-start;
+}
+
+.custom-btm {
+  display: flex;
+  width: 366px;
+  height: 40px;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: #4E75FF;
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.64px;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-btm:hover {
+  border-radius: 8px;
+  background: #6C8CFF;
 }
