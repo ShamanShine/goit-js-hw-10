@@ -29,35 +29,42 @@ function addLeadingZero(value) {
   return value < 10 ? `0${value}` : value;
 }
 
+// Обработчик события при закрытии календаря
+const onCloseHandler = selectedDates => {
+  const userSelectedDate = selectedDates[0];
+  const startButton = document.querySelector('[data-start]');
+
+  // Проверка, выбрана ли дата в будущем
+  if (userSelectedDate < new Date()) {
+    // Вывод сообщения об ошибке и блокировка кнопки start
+    iziToast.error({
+      title: 'Error',
+      message: 'Please choose a date in the future',
+      position: 'topCenter',
+    });
+    startButton.disabled = true;
+  } else {
+    // Разблокировка кнопки start
+    startButton.disabled = false;
+  }
+};
+
 // Инициализация flatpickr для элемента с id 'datetime-picker'
 const datetimePicker = flatpickr('#datetime-picker', {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onClose: selectedDates => {
-    // Обработчик события при закрытии календаря
-    const userSelectedDate = selectedDates[0];
-    const startButton = document.querySelector('[data-start]');
-
-    // Проверка, выбрана ли дата в будущем
-    if (userSelectedDate < new Date()) {
-      // Вывод сообщения об ошибке и блокировка кнопки start
-      iziToast.error({
-        title: 'Error',
-        message: 'Please choose a date in the future',
-        position: 'topCenter',
-      });
-      startButton.disabled = true;
-    } else {
-      // Разблокировка кнопки start
-      startButton.disabled = false;
-    }
-  },
+  onClose: onCloseHandler, // Подключаем обработчик события
 });
+
+const startButton = document.querySelector('[data-start]');
+startButton.disabled = true;
 
 // Обработчик события для кнопки start
 document.querySelector('[data-start]').addEventListener('click', () => {
+  const inputTimer = document.querySelector('#datetime-picker');
+  inputTimer.setAttribute('disabled', 'disabled');
   const userSelectedDate = datetimePicker.selectedDates[0];
   const startButton = document.querySelector('[data-start]');
 

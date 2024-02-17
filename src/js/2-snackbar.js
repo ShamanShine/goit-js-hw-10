@@ -32,23 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Обрабатываем результаты промиса
-    promise.then(
-      delay => {
+    promise
+      .then(delay => {
         // Если промис выполнился успешно, выводим сообщение об успехе
         iziToast.success({
           title: 'Fulfilled promise',
           message: `✅ Fulfilled promise in ${delay}ms`,
           position: 'topCenter',
         });
-      },
-      delay => {
+      })
+      .catch(delay => {
         // Если промис был отклонен, выводим сообщение об отклонении
         iziToast.error({
           title: 'Rejected promise',
           message: `❌ Rejected promise in ${delay}ms`,
           position: 'topCenter',
         });
-      }
-    );
+      });
   });
 });
